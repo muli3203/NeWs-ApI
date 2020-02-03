@@ -2,7 +2,7 @@ import unittest
 from models import news
 News = news.News
 
-class NewsTest(unittest,TestCase):
+class NewsTest(unittest.TestCase):
     '''
     test the behaviour of News class
     '''
