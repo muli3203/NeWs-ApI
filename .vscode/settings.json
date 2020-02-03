@@ -4,5 +4,5 @@
         "titleBar.activeBackground": "#28472D",
         "titleBar.activeForeground": "#F9FCFA"
     },
-    "python.pythonPath": "/usr/bin/python3.7"
+    "python.pythonPath": "/home/moringa/Documents/newws/virtual/bin/python3.6"
 }
