@@ -1,1 +1,54 @@
-<h1> {{ message}} </h1>
+{% extends 'base.html'%}
+{%import 'macros.html' as macro %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    {% endblock %}
+    <title>Document</title>
+</head>
+
+<body>
+
+    {%block content%}
+    <h1>Business News</h1>
+    <ul>
+
+        {{macro.displayNewsList(business) }}
+
+    </ul>
+    <h1>Entertainment News</h1>
+    <ul>
+
+        {{macro.displayNewsList(entertainment) }}
+
+    </ul>
+
+    <h1>Sports News</h1>
+    <ul>
+
+        {{macro.displayNewsList(sports) }}
+    </ul>
+    <h1>Technology News</h1>
+    <ul>
+
+        {{macro.displayNewsList(technology) }}
+
+    </ul>
+    <h1>Science News</h1>
+    <ul>
+        {{macro.displayNewsList(science) }}
+    </ul>
+    {%endblock%}
+</body>
+
+</html>

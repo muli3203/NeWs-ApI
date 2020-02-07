@@ -1,1 +1,62 @@
-<h1>Carry On!!! {{ news_id }}</h1>
+{% extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> News Articles </title>
+    {% endif %}
+</head>
+
+<body>
+
+    <!-- Content block -->
+    {% block content %}
+    <div class="container article-content">
+        <!-- <h1>{{ title }}</h1> -->
+
+        <div class="row" id="article-row">
+            
+            
+            {% for articles in articles %}
+            <div class="col-md-5">
+                <img class="fadeInUp details" src="{{articles.urlToImage}}" width="100%">
+            </div>
+
+            <div class="col-md-7">
+                <p><strong>{{ articles.title }}</strong></p>
+                <hr>
+                <p>{{ articles.description }}</p>
+
+                <div id="content-details">
+                    <p><em>{{articles.content}}</em></p>
+                </div>
+
+                <div class="animated fadeInUp details">
+                    {%if articles.author%}
+                    <p class="font-weight-normal">by {{articles.author}}</a>.
+                    </p>
+                    {%endif%}
+
+                    {%if articles.publishedAt%}
+                    <p>Posted on: {{articles.publishedAt[:10]}}</p>
+                    {%endif%}
+
+                    <p><a href="{{ articles.url }}">Go to full story</a></p>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    {% endblock%}
+
+</body>
+
+</html>

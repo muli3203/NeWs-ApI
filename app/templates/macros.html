@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% block styles%}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    {% endblock %}
+</head>
+
+<body>
+    {%macro displayNewsList(news_list)%}
+
+    <div class="container">
+        <div class="row">
+            {%for news in news_list%}
+            <div class="card col-md-3">
+                <div class="card-body">
+                    <h4 class="card-title">NEWS HIGHLIGHT</h4>
+                    <p class="card-text"> {{news.description | truncate(80)}} </p>
+                    <footer>
+                        <a href="/news/{{news.id}}" class="btn btn-primary"> {{news.name}} </a>
+                    </footer>
+
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+
+    </div>
+
+
+
+    {%endmacro%}
+</body>
+
+</html>
